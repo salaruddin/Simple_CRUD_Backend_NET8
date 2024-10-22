@@ -12,7 +12,7 @@ namespace backend.Core.Entities
         [MaxLength(20)]
         public required string Name { get; set; }
         public DateTime CreationDate { get; set; } = DateTime.UtcNow;
-        public DateTime UpdateTime { get; set; }= DateTime.UtcNow;
+        public DateTime UpdateDate { get; set; }= DateTime.UtcNow;
 
         [ForeignKey(nameof(Category))]
         public int CategoryID { get; set; }

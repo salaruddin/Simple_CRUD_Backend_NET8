@@ -12,7 +12,7 @@ using backend.Core.Context;
 namespace backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241018111319_initial")]
+    [Migration("20241019055537_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -62,7 +62,7 @@ namespace backend.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<DateTime>("UpdateTime")
+                    b.Property<DateTime>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("ID");

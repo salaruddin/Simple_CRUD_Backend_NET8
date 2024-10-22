@@ -1,8 +1,20 @@
+using backend.Core.AutoMapper;
 using backend.Core.Context;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Serilog;
+using Serilog.Sinks.MSSqlServer;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//configuring serilog
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration) // Load configuration from appsettings
+    .CreateLogger();
+
+builder.Host.UseSerilog();
+
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -28,4 +40,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+Log.Information("Application Started");
 app.Run();

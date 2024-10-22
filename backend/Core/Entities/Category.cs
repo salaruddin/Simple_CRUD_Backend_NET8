@@ -10,6 +10,9 @@ namespace backend.Core.Entities
         [MaxLength(20)]
         public required string Name { get; set; }
 
+        [Required]
+
+
         public IList<Product> Products { get; set; } = new List<Product>();
     }
 }
